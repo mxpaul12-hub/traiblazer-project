@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Class Attendance Register</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <h1>Hello, World!</h1>
+    <main class="sheet">
+        <h1>Class Attendance Register</h1>
+        <p class="sub">Tap Present, Absent or Late for each student.</p>
+
+        <label for="search" class="sr-only" style="position:absolute;left:-9999px">Search student</label>
+        <input id="search" class="search" type="search" placeholder="Search student" autocomplete="off" />
+
+        <div class="toolbar">
+            <div class="left">
+                <label style="position:absolute;left:-9999px" for="week">Week</label>
+                <select id="week"></select>
+                <label style="position:absolute;left:-9999px" for="day">Day</label>
+                <select id="day">
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                </select>
+            </div>
+            <span class="grade">Grade 1</span>
+        </div>
+
+        <div class="summary" aria-live="polite">
+            <div class="stat p"><b id="cP">0</b><span>Present</span></div>
+            <div class="stat a"><b id="cA">0</b><span>Absent</span></div>
+            <div class="stat l"><b id="cL">0</b><span>Late</span></div>
+            <div class="stat u"><b id="cU">0</b><span>Unmarked</span></div>
+        </div>
+
+        <ul id="list"></ul>
+
+        <div class="actions">
+            <button class="btn" id="allPresent" type="button">Mark all present</button>
+            <button class="btn" id="exportCsv" type="button">Download CSV</button>
+            <button class="btn primary" id="save" type="button">Save attendance</button>
+        </div>
+        
+        <p class="toast" id="toast" role="status"></p>
+    </main>
+
+    <script defer src="index.js"></script>
 </body>
+
 </html>
